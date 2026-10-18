@@ -1,0 +1,22 @@
+[package]
+name = "layout_tools"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "LayoutTools"
+crate-type = ["cdylib"]
+
+[lints.rust]
+non_snake_case = "allow"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
+
+[dependencies]
+windows = { version = "0.62.2", features = ["Win32", "Win32_System", "Win32_UI", "Win32_System_Environment", "Win32_System_LibraryLoader", "Win32_UI_Input", "Win32_UI_Input_KeyboardAndMouse", "Win32_UI_WindowsAndMessaging", "Win32_Globalization", "Win32_UI_Shell", "Win32_System_Diagnostics", "Win32_System_Diagnostics_Debug"] }
+winreg = "0.56.0"
+num-traits = "0.2.19"
